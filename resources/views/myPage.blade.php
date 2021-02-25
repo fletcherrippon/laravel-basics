@@ -22,8 +22,16 @@
         <li>{{ $data }}</li>
       @endforeach
     </ul>
-    <span>Click this 👉</span> <button onclick="increment(this)">0</button>
+    <div>
+      <span>Click this 👉</span>
+      <button onclick="increment(this)">0</button>
+    </div>
   </div>
-  <script>const increment = (e) => e.innerText++;</script>
+  <script>
+    const increment = (e) => {
+      const clicks = ++e.innerText;
+      if (clicks == 10) e.previousElementSibling.innerText = 'You have clicked over ten times';
+    };
+  </script>
 </body>
 </html>
