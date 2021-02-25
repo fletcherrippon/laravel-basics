@@ -24,14 +24,9 @@
     </ul>
     <div>
       <span>Click this 👉</span>
-      <button onclick="increment(this)">0</button>
+      <button id="button-click">0</button>
     </div>
   </div>
-  <script>
-    const increment = (e) => {
-      const clicks = ++e.innerText;
-      if (clicks == 10) e.previousElementSibling.innerText = 'You have clicked over ten times';
-    };
-  </script>
+  <script type="text/javascript" src="{{ mix('/js/buttonClicker.js') }}"></script>
 </body>
 </html>
