@@ -18,8 +18,8 @@
     </ul>
     <h3>Data parsed from router using <code>foreach</code></h3>
     <ul>
-      @foreach ($user as $data)
-        <li>{{ $data }}</li>
+      @foreach ($user as $key=>$value)
+        <li>{{ $key }} => {{ $value }}</li>
       @endforeach
     </ul>
     <div>
