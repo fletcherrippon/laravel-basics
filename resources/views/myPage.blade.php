@@ -22,6 +22,8 @@
         <li>{{ $data }}</li>
       @endforeach
     </ul>
+    <span>Click this 👉</span> <button onclick="increment(this)">0</button>
   </div>
+  <script>const increment = (e) => e.innerText++;</script>
 </body>
 </html>
