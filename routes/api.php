@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// Use the user controller
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -46,25 +49,17 @@ Route::get('/post/{id}', function ($id) {
 // Grouped routes 
 Route::prefix('/profile')->group(function () {
     // All profile data
-    Route::get('/', function () {
-        $first_name = 'Fletcher';
-        $last_name = 'Rippon';
-        $bio = 'Things about me';
-
-        return [
-            'firstName' => $first_name,
-            'lastName' => $last_name,
-            'fullName' => $first_name.' '.$last_name,
-            'bio' => $bio,
-            'bioLength' => strlen($bio)
-        ];
-    });
+    Route::get('/', UserController::class);
 
     // Optional pram 
     // profile/name/{sub_name: first | last (optional)}
     Route::get('/name/{sub_name?}', function ($sub_name = null) {
-        $first_name = 'Fletcher';
-        $last_name = 'Rippon';
+        $user = new UserController;
+        
+        [
+            'firstName' => $first_name,
+            'lastName' => $last_name
+        ] = $user();
 
         if (is_null($sub_name)) {
             return $first_name.' '.$last_name;
