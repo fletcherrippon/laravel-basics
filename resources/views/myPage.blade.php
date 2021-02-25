@@ -26,6 +26,10 @@
       <span>Click this 👉</span>
       <button id="button-click">0</button>
     </div>
+
+    @if (1<>0)
+      <h4>Hello I show when two values are not the same</h4>
+    @endif
   </div>
   <script type="text/javascript" src="{{ mix('/js/buttonClicker.js') }}"></script>
 </body>
